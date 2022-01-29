@@ -42,14 +42,9 @@ class UsersRepository implements IUsersRepository {
   }
 
   turnAdmin(receivedUser: User): User {
-    const user: User = {
-      id: receivedUser.id,
-      name: receivedUser.name,
-      email: receivedUser.email,
-      admin: true,
-      created_at: receivedUser.created_at,
-      updated_at: new Date(),
-    };
+    const user: User = receivedUser;
+    user.admin = true;
+    user.updated_at = new Date();
     return user;
   }
 
