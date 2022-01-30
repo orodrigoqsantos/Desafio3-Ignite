@@ -11,7 +11,7 @@ class ListAllUsersUseCase {
   execute({ user_id }: IRequest): User[] {
     const userRequestor = this.usersRepository.findById(user_id);
     if (!userRequestor.admin) {
-      throw new Error("User does not have permission to access users list");
+      throw new Error("You need to be an administrator to list all users.");
     }
     const users = this.usersRepository.list();
     return users;
